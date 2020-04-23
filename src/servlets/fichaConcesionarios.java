@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Utils.RequestUtils;
+import Utils.SuperTipoServlet;
 import model.Concesionario;
 import model.controladores.ConcesionarioControlador;
 
@@ -17,7 +18,7 @@ import model.controladores.ConcesionarioControlador;
  * Servlet implementation class fichaConcesionarios
  */
 @WebServlet("/fichaConcesionarios")
-public class fichaConcesionarios extends HttpServlet {
+public class fichaConcesionarios extends SuperTipoServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -96,12 +97,8 @@ public class fichaConcesionarios extends HttpServlet {
 		}
 
 		// Ahora mostramos la pantalla de respuesta al usuario
-		response.getWriter().append("<!DOCTYPE html PUBLIC \\\"-//W3C//DTD XHTML 1.0 Transitional//EN\\\" \\\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\\">\r\n" +
-				"<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n" +
-				"<head>\r\n" + 
-				"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" />\r\n" + 
-				"<title>Ficha de Concesionario</title>\r\n" +
-				"</head>\r\n" + 
+		response.getWriter().append(this.getCabeceraHTML("Ficha de concesionario"));
+		response.getWriter().append("\r\n" + 
 				"<script> \r\n" +
 				"function validateForm() {" +
 				"var x = document.forms[\"form1\"][\"cif\"].value;" +
@@ -125,7 +122,7 @@ public class fichaConcesionarios extends HttpServlet {
 				"<body " +((mensajeAlUsuario != null && mensajeAlUsuario != "")? "onLoad=\"alert('" + mensajeAlUsuario + "');\"" : "")  + " >\r\n" +
 				"<h1>Ficha de concesionario</h1>\r\n" + 
 				"<a href=\"ListadoConcesionarios\">Ir al listado de concesionario</a>" +
-				"<form id=\"form1\" name=\"form1\" method=\"post\" action=\"fichaConcesionarios\" enctype=\\\"multipart/form-data\\ onsubmit=\"return validateForm()\">\r\n" + 
+				"<form id=\"form1\" name=\"form1\" method=\"post\" action=\"fichaConcesionarios\" enctype=\"multipart/form-data\" onsubmit=\"return validateForm()\">\r\n" + 
 				" <img src=\"Utils/DownloadImagenConcesionario?idConcesionario=" + concesionario.getId() + "\" width='100px' height='100px'/>" +
 				" <input type=\"hidden\" name=\"idConcesionario\" value=\"" + concesionario.getId() + "\"\\>" +
 				"  <p>\r\n" + 
