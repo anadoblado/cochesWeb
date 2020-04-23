@@ -2,6 +2,10 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import model.Concesionario;
+import model.Entidad;
+
 import java.util.List;
 
 
@@ -19,6 +23,9 @@ public class Concesionario extends Entidad implements Serializable {
 	private int id;
 
 	private String cif;
+
+	@Lob
+	private byte[] imagen;
 
 	private String localidad;
 
@@ -45,6 +52,14 @@ public class Concesionario extends Entidad implements Serializable {
 
 	public void setCif(String cif) {
 		this.cif = cif;
+	}
+
+	public byte[] getImagen() {
+		return this.imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
 	}
 
 	public String getLocalidad() {
@@ -99,7 +114,6 @@ public class Concesionario extends Entidad implements Serializable {
 		return false;
 		
 	}
-	
 	
 
 }

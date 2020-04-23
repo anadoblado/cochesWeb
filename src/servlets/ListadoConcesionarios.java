@@ -53,7 +53,7 @@ public class ListadoConcesionarios extends HttpServlet {
 		for (Concesionario c : concesionarios) {
 			response.getWriter().append("" + 
 				"  <tr>\r\n" + 
-				"    <td><a href=\"FichaConcesionario?idConcesionario=" + c.getId() + "\">" + c.getCif() + "</a></td>\r\n" +
+				"    <td><a href=\"fichaConcesionarios?idConcesionario=" + c.getId() + "\">" + c.getCif() + "</a></td>\r\n" +
 				"	 <td>" + c.getNombre() + "</td>\r\n" +
 				"	 <td>" + c.getLocalidad() + "</td>\r\n" +
 				"  </tr>\r\n"
@@ -63,7 +63,7 @@ public class ListadoConcesionarios extends HttpServlet {
 		// Cerramos la tabla y el HTML
 		response.getWriter().append("" +
 				"</table>\r\n" +
-				"<p/><input type=\"submit\"  name=\"nuevo\" value=\"Nuevo\"  onclick=\"window.location='FichaConcesionario?idConcesionario=0'\"/>" +
+				"<p/><input type=\"submit\"  name=\"nuevo\" value=\"Nuevo\"  onclick=\"window.location='fichaConcesionarios?idConcesionario=0'\"/>" +
 				"</body>\r\n" + 
 				"</html>\r\n" + 
 				"");
