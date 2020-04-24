@@ -39,6 +39,8 @@ public class ListadoConcesionarios extends HttpServlet {
 				"\r\n" +
 				"<body>\r\n" + 
 				"<h1>Listado de concesionarios</h1>\r\n" + 
+				"<p></p>" +
+				"<a href=\"index.html\">Ir al inicio</a>" +
 				"<table width=\"95%\" border=\"1\">\r\n" +
 				"  <tr>\r\n" + 
 				"    <th scope=\"col\">Cif</th>\r\n" + 
