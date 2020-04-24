@@ -2,6 +2,9 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import model.Coche;
+
 import java.util.List;
 
 
@@ -21,6 +24,9 @@ public class Coche extends Entidad implements Serializable {
 	private String bastidor;
 
 	private String color;
+
+	@Lob
+	private byte[] imagen;
 
 	private String modelo;
 
@@ -58,6 +64,14 @@ public class Coche extends Entidad implements Serializable {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public byte[] getImagen() {
+		return this.imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
 	}
 
 	public String getModelo() {
@@ -113,5 +127,4 @@ public class Coche extends Entidad implements Serializable {
 		
 	}
 
-	
 }

@@ -1,8 +1,10 @@
 package model;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
+
+import model.Cliente;
+
 import java.util.Date;
 import java.util.List;
 
@@ -134,5 +136,4 @@ public class Cliente extends Entidad implements Serializable {
 		
 	}
 	
-
 }
