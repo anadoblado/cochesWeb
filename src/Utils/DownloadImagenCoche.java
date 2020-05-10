@@ -47,7 +47,7 @@ public class DownloadImagenCoche extends HttpServlet {
 		// más general, recibiendo diferentes parámetros y obteniendo diferentes imágenes de diferentes fuentes, pero por simplificar
 		// sólo descargará imágenes de un fabricante.
 		Coche coche = null;
-		if (request.getParameter("idFabricante") != null) { // comparar con "null" es la forma de comprobar si el parámetro está en la petición web
+		if (request.getParameter("idCoche") != null) { // comparar con "null" es la forma de comprobar si el parámetro está en la petición web
 			String strIdCoche = request.getParameter("idCoche");
 			try {
 				coche = (Coche) CocheControlador.getControlador().find(Integer.parseInt(strIdCoche)); 
