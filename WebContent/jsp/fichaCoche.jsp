@@ -16,21 +16,21 @@
 	// Obtengo un HashMap con todos los parámetros del request, sea del tipo que sea;
 HashMap<String, Object> hashMap = RequestUtils.requestToHashMap(request);
 
-	// Para plasmar la información de un concesionario determinado utilizaremos un parámetro que debe llegar al Servlet obligatoriamente
-	// El parámetro se llama "idConcesionario" y gracias a él podremos obtener la info del concesionario y mostrar sus datos por pantalla
+	// Para plasmar la información de un coche determinado utilizaremos un parámetro que debe llegar al Servlet obligatoriamente
+	// El parámetro se llama "idCoche" y gracias a él podremos obtener la info del coche y mostrar sus datos por pantalla
 	
 Coche coche = null;
-	// Obtengo el concesionario a editar, en el caso de que el concesionario ya exista se cargarán los datos, y si no, quedará a null
+	// Obtengo el coche a editar, en el caso de que el coche ya exista se cargarán los datos, y si no, quedará a null
 try {
-	int idCoche = RequestUtils.getIntParameterFromHashMap(hashMap, "idCoche"); // Necesito obtener el id del concesionario que se quiere editar
-	// Si el Concesionario es nuevo, el valor del id será 0
+	int idCoche = RequestUtils.getIntParameterFromHashMap(hashMap, "idCoche"); // Necesito obtener el id del coche que se quiere editar
+	// Si el Coche es nuevo, el valor del id será 0
 	if (idCoche != 0){
 		coche = (Coche) CocheControlador.getControlador().find(idCoche);
 	}
 } catch (Exception e){
 	e.printStackTrace();
 }
-// Inicio la carga de los valores de un concesionario
+// Inicio la carga de los valores de un coche
 if (coche == null){
 	coche = new Coche();
 }

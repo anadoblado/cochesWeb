@@ -49,7 +49,7 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "eliminar") != null){
 	// Intento elimiar un registro, si he ejecuta volvemos a la pantalla del listado
 	try{
 		ConcesionarioControlador.getControlador().remove(concesionario);
-		response.sendRedirect(request.getContextPath() + "jsp/listadoConcesionarios.jsp"); // Redirección al listado
+		response.sendRedirect(request.getContextPath() + "jsp/listadoConcesionarios2.jsp"); // Redirección al listado
 	} catch (Exception ex){
 		mensajeAlUsuario = "ERROR - Imposible eliminar. Es posible que exitan restricciones.";
 	}
@@ -101,7 +101,7 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					<h4 class="mb-0">Ficha de concesionario</h4>
 				</div>
 				<div class="card-body">
-					<a href="listadoConcesionarios.jsp">Ir al listado de Concesionarios</a>
+					<a href="listadoConcesionarios2.jsp">Ir al listado de Concesionarios</a>
 					<form id="form1" name="form1" method="post" 
 					action="fichaConcesionario.jsp" enctype="multipart/form-data"
 					class="form" role="form" autocomplete="off">

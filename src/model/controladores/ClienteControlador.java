@@ -8,7 +8,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import model.Cliente;
-import model.Concesionario;
 import model.Controlador;
 
 
@@ -18,7 +17,7 @@ public class ClienteControlador extends Controlador {
 	private static ClienteControlador controlador = null;
 
 	public ClienteControlador () {
-		super(Concesionario.class, "VentaDeCoches");
+		super(Cliente.class, "VentaDeCoches");
 	}
 	
 	/**
