@@ -23,6 +23,7 @@
 		<% offset = getOffset(request.getParameter("idPag"));
 			paginationIndex = Integer.parseInt(request.getParameter("idPag"));
 		%>
+
 <div class="container">
 	<h1>Listado de Ventas</h1>
 	<table class="table table-hover">

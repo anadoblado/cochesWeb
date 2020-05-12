@@ -11,9 +11,49 @@
   <title><%= (tituloDePagina != null)? tituloDePagina : "Sin título" %></title>
 </head>
 <body>
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item active dropdown">
+      <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#">Concesionarios</a>
+          <div class="dropdown-menu">
+      		<a class="dropdown-item" href=listadoConcesionarios.jsp?idPag=1>Listado de Concesionarios</a>
+    	</div>	
+    </li>
+   <li class="nav-item active dropdown">
+      <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#">Fabricantes</a>
+          <div class="dropdown-menu">
+      		<a class="dropdown-item" href=listadoFabricantes.jsp?idPag=1>Listado de Fabricantes</a>
+    	</div>	
+    </li>
+    <li class="nav-item active dropdown">
+      <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#">Coches</a>
+          <div class="dropdown-menu">
+      		<a class="dropdown-item" href=listadoCoches.jsp?idPag=1>Listado de Coches</a>
+    	</div>	
+    </li>
+    <li class="nav-item active dropdown">
+      <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#">Clientes</a>
+          <div class="dropdown-menu">
+      		<a class="dropdown-item" href=listadoClientes.jsp?idPag=1>Listado de Clientes</a>
+    	</div>	
+    </li>
+    <li class="nav-item active dropdown">
+      <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#">Ventas</a>
+          <div class="dropdown-menu">
+      		<a class="dropdown-item" href=listadoVentas.jsp?idPag=1>Listado de Ventas</a>
+    	</div>	
+    </li>
+    <li class="nav-item active dropdown">
+      <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#">Opciones</a>
+          <div class="dropdown-menu">
+      		<a class="dropdown-item" href=../index.html>Menú con opciones</a>
+    	</div>	
+    </li>
+  </ul>
+</nav>
 
 <div class="cotainer">
-	<a href="../index.html"> Volver al menú de opciones </a>
+	<a href="../index.html" class="btn btn-info" role="button"> Volver al menú de opciones </a>
 </div>
 
 </body>
