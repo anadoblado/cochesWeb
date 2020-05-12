@@ -71,7 +71,7 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 	try{
 		venta.setConcesionario((Concesionario) ConcesionarioControlador.getControlador().find(RequestUtils.getIntParameterFromHashMap(hashMap, "idConcesionario")));
 		venta.setCliente((Cliente) ClienteControlador.getControlador().find(RequestUtils.getIntParameterFromHashMap(hashMap, "idCliente")));
-		venta.setCoche((Coche) CocheControlador.getControlador().find(RequestUtils.getIntParameterFromHashMap(hashMap, "idCliente")));
+		venta.setCoche((Coche) CocheControlador.getControlador().find(RequestUtils.getIntParameterFromHashMap(hashMap, "idCoche")));
 		venta.setPrecioVenta(Float.parseFloat(RequestUtils.getStringParameterFromHashMap(hashMap, "precioVenta")));
 		try {
 			venta.setFecha(sdfFecha.parse(RequestUtils.getStringParameterFromHashMap(hashMap, "fechaNac")));
@@ -114,11 +114,12 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					<h4 class="mb-0">Ficha de venta</h4>
 				</div>
 				<div class="card-body">
-					<a href="listadoVentas.jsp">Ir al listado de Ventas</a>
+					<a href="listadoVentas.jsp?idPag=1" class="btn btn-info btn-sm" role="button">Volver al listado</a>
 					<form id="form1" name="form1" method="post" 
 					action="fichaVenta.jsp" enctype="multipart/form-data"
 					class="form" role="form" autocomplete="off">
 					<p />
+					 <input type="hidden" name="idVenta" value="<%=venta.getId()%>"/>
 					 <div class="form-group row">
 					 	<label class="col-lg-3 col-form-label form-control-label" for="idConcesionario">Concesionario:</label>
 					 	<div class="col-lg-9">
@@ -177,7 +178,7 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					 </div>
 					 <div>
 					  <div>
-					   <label class="col-lg-3 col-form-label form-control-label" for="precioVenta">Precio de la venta</label>
+					   <label class="col-lg-3 col-form-label form-control-label" for="precioVenta">Precio de venta</label>
 					   <div class="col-lg-9">
 					   		<input name="precioVenta" class="form-control" type="text" id="precioVenta" value="<%=venta.getPrecioVenta() %>" />
 					   </div>
@@ -185,9 +186,8 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					 </div>
 					 <div class="form-group row">
 							<div class="col-lg-9">
-								<input type="submit" name="guardar" class="btn btn-primary"
-									value="Guardar" /> <input type="submit" name="eliminar"
-									class="btn btn-secondary" value="Eliminar" />
+								<input type="submit" name="guardar" class="btn btn-info" value="Guardar" /> 
+								<input type="submit" name="eliminar" class="btn btn-secondary" value="Eliminar" />
 							</div>
 						</div>
 					</form>

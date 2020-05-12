@@ -99,7 +99,7 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					<h4 class="mb-0">Ficha de fabricante</h4>
 				</div>
 				<div class="card-body">
-					<a href="listadoFabricantes.jsp">Ir al listado de Fabricantes</a>
+					<a href="listadoFabricantes.jsp?idPag=1" class="btn btn-info btn-sm" role="button">Volver al listado</a>
 					<form id="form1" name="form1" method="post" 
 					action="fichaFabricante.jsp" enctype="multipart/form-data"
 					class="form" role="form" autocomplete="off">
@@ -130,9 +130,8 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					 </div>
 					 	<div class="form-group row">
 							<div class="col-lg-9">
-								<input type="submit" name="guardar" class="btn btn-primary"
-									value="Guardar" /> <input type="submit" name="eliminar"
-									class="btn btn-secondary" value="Eliminar" />
+								<input type="submit" name="guardar" class="btn btn-info" value="Guardar" /> 
+								<input type="submit" name="eliminar" class="btn btn-secondary" value="Eliminar" />
 							</div>
 						</div>
 					</form>

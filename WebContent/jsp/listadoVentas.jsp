@@ -59,7 +59,7 @@
 		</tbody>
 	</table>
 	<p />
-	<input type="submit" class="btn btn-primary" name="nuevo" value="Nuevo"
+	<input type="submit" class="btn btn-info" name="nuevo" value="Nuevo"
 		onclick="window.location='fichaVenta.jsp?idVenta=0'" />
 		
 	<ul class="pagination justify-content-center">

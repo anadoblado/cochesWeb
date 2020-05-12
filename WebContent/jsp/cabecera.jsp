@@ -11,8 +11,12 @@
   <title><%= (tituloDePagina != null)? tituloDePagina : "Sin título" %></title>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-info navbar-dark">
-  <ul class="navbar-nav">
+<nav class="navbar navbar-expand-md bg-info navbar-dark">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    	<span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="collapsibleNavbar"> 
+   		<ul class="navbar-nav">
     <li class="nav-item active dropdown">
       <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#">Concesionarios</a>
           <div class="dropdown-menu">
@@ -50,10 +54,8 @@
     	</div>	
     </li>
   </ul>
+   </div>
+  
 </nav>
-
-<div class="cotainer">
-	<a href="../index.html" class="btn btn-info" role="button"> Volver al menú de opciones </a>
-</div>
 
 </body>

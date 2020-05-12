@@ -23,9 +23,6 @@
 		<% offset = getOffset(request.getParameter("idPag"));
 			paginationIndex = Integer.parseInt(request.getParameter("idPag"));
 		%>
-		<script>
-			alert("<%=paginationIndex%>");
-		</script>
 <div class="container">
 	<h1>Listado de Clientes</h1>
 	<table class="table table-hover">
@@ -63,7 +60,7 @@
 		</tbody>
 	</table>
 	<p />
-	<input type="submit" class="btn btn-primary" name="nuevo" value="Nuevo"
+	<input type="submit" class="btn btn-info" name="nuevo" value="Nuevo"
 		onclick="window.location='fichaCliente.jsp?idCliente=0'" />
 		
 			<ul class="pagination justify-content-center">

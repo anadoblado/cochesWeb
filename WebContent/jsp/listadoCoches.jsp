@@ -56,7 +56,7 @@
 		</tbody>
 	</table>
 	<p />
-	<input type="submit" class="btn btn-primary" name="nuevo" value="Nuevo"
+	<input type="submit" class="btn btn-info" name="nuevo" value="Nuevo"
 		onclick="window.location='fichaCoche.jsp?idCoche=0'" />
 		
 		
