@@ -9,18 +9,7 @@
 	<jsp:param name="tituloDePagina" value="Listado de concesionarios" />
 </jsp:include>
 
-<div class="container">
-	<h1>Listado de Concesionarios</h1>
-	<table class="table table-hover">
-		<thead class="thead-dark">
-			<tr>
-				<th>Cif</th>
-				<th>Localidad</th>
-				<th>Nombre</th>
-			</tr>
-		</thead>
-		<tbody>
-		<%!
+	<%!
 			public int getOffset(String param){
 				int offset = Integer.parseInt(param);
 				if(offset > 1){
@@ -33,7 +22,20 @@
 			}
 		%>
 		<%! private int offset; %>
-		<%= offset = getOffset(request.getParameter("idPag"))  %>
+		<%= offset = getOffset(request.getParameter("idPag")) %>
+<div class="container">
+	<h1>Listado de Concesionarios</h1>
+
+	<table class="table table-hover">
+		<thead class="thead-dark">
+			<tr>
+				<th>Cif</th>
+				<th>Localidad</th>
+				<th>Nombre</th>
+			</tr>
+		</thead>
+		<tbody>
+		
 			<%
 				// Hasta la fila anterior ha llegado la primera fila de títulos de la tabla de concesionario de la gestión de ventas
 			// En las siguietnes líneas se crea una fila "elemento <tr>" por cada fila de la tabla de BBDD "concesionario"

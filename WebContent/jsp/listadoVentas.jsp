@@ -7,6 +7,20 @@
 	<jsp:param name="tituloDePagina" value="Listado de ventas" />
 </jsp:include>
 
+	<%!
+			public int getOffset(String param){
+				int offset = Integer.parseInt(param);
+				if(offset > 1){
+					return 5 * offset;
+				}
+				else{
+					return 0;
+				}
+				
+			}
+		%>
+		<%! private int offset; %>
+		<%= offset = getOffset(request.getParameter("idPag")) %>
 <div class="container">
 	<h1>Listado de Ventas</h1>
 	<table class="table table-hover">
@@ -23,7 +37,7 @@
 			<%
 				// Hasta la fila anterior ha llegado la primera fila de títulos de la tabla de venta de la gestión de ventas
 			// En las siguietnes líneas se crea una fila "elemento <tr>" por cada fila de la tabla de BBDD "venta"
-			List<Venta> ventas = VentaControlador.getControlador().findAll();
+			List<Venta> ventas = VentaControlador.getControlador().findAllLimited(5, offset);
 			for (Venta venta : ventas) {
 			%>
 			<tr>
@@ -44,5 +58,17 @@
 	<p />
 	<input type="submit" class="btn btn-primary" name="nuevo" value="Nuevo"
 		onclick="window.location='fichaVenta.jsp?idVenta=0'" />
+		
+			<ul class="pagination">
+	  <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+	  <%
+	  List<Venta> c = VentaControlador.getControlador().findAll();
+	  double size = Math.ceil(c.size() / 5);
+	  for(int i = 1; i <= size; i++){
+	  %> 
+		  <li class="page-item"><a class="page-link" href="?idPag=<%= i %>" ><%= i %></a></li>
+	  <%
+	  }
+	  %>
 </div>
 <%@ include file="pie.jsp"%>

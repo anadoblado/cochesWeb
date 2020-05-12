@@ -150,7 +150,16 @@ public class CocheControlador extends Controlador {
 		return resultado;
 	}
 	
-
+	public List<Coche> findAllLimited (int limit, int offset) {
+		EntityManager em = getEntityManagerFactory().createEntityManager();
+		Query q = em.createQuery("SELECT c FROM Coche c", Coche.class);
+		q.setMaxResults(limit);
+		q.setFirstResult(offset);
+		List<Coche> resultado = (List<Coche>) q.getResultList();
+		em.close();
+		return resultado;
+	}
+	
 	
 	public static String toString (Coche coche) {
 		return coche.getFabricante() + " " + coche.getModelo() + " - " + coche.getBastidor(); 

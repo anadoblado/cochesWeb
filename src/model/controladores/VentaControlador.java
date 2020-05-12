@@ -151,6 +151,15 @@ public class VentaControlador extends Controlador {
 		return resultado;
 	}
 	
+	public List<Venta> findAllLimited (int limit, int offset) {
+		EntityManager em = getEntityManagerFactory().createEntityManager();
+		Query q = em.createQuery("SELECT c FROM Venta c", Coche.class);
+		q.setMaxResults(limit);
+		q.setFirstResult(offset);
+		List<Venta> resultado = (List<Venta>) q.getResultList();
+		em.close();
+		return resultado;
+	}
 
 	
 	public static String toString (Venta venta) {

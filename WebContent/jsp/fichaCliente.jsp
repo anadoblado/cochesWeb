@@ -122,11 +122,12 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					<h4 class="mb-0">Ficha de cliente</h4>
 				</div>
 				<div class="card-body">
-					<a href="listadoClientes.jsp">Ir al listado de Clientes</a>
+					<a href="listadoClientes.jsp?idPag=1">Ir al listado de Clientes</a>
 					<form id="form1" name="form1" method="post" 
 					action="fichaCliente.jsp" enctype="multipart/form-data"
 					class="form" role="form" autocomplete="off">
 					 <p />
+					 <input type="hidden" name="idCliente" value="<%=cliente.getId()%>"/>
 					 <div class="form-group row">
 					 	<label class="col-lg-3 col-form-label form-control-label" for="dniNie">Dni o Nie:</label>
 					 	<div class="col-lg-9">
@@ -149,7 +150,8 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					 <div class="form-group row">
 					 	<label class="col-lg-3 col-form-label form-control-label" for="fechaNac">Fecha de Nacimiento:</label>
 					 	<div class="col-lg-9">
-					 		<input name="fechaNac" class="form-control" type="text" id="fechaNac" value="<%= ((cliente.getFechaNac() != null)? sdfFechaNac.format(cliente.getFechaNac()) : "") %>" />
+					 		<input name="fechaNac" class="form-control" type="text"
+					 		 id="fechaNac" value="<%= ((cliente.getFechaNac() != null)? sdfFechaNac.format(cliente.getFechaNac()) : "") %>" />
 					 	</div>
 					 </div>
 					 <div class="form-group row">
@@ -161,7 +163,7 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
  				    <div class="form-group row">
 					 	<label class="col-lg-3 col-form-label form-check-label" for="activo">Estado:</label>
 					 	<div class="col-lg-9">
-					 		<input name="activo" class="form-check-input" type="chekbox" id="activo" value="<%=cliente.getActivo()%>" />
+					 		<input name="activo" class="form-check-input" type="checkbox" id="activo" value="<%=cliente.getActivo()%>" />
 					 	</div>
 					 </div> 
  					 
