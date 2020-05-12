@@ -112,7 +112,7 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					action="fichaCoche.jsp" enctype="multipart/form-data"
 					class="form" role="form" autocomplete="off">
 					<p />
-					<img class="mx-auto d-block round-circle" 
+					<img class="mx-auto d-block rounded-circle" 
 					 src="../Utils/DownloadImagenCoche?idCoche=<%=coche.getId()%>"
 					 width="150px" height="100px" />
 					 <p />

@@ -17,7 +17,7 @@ public class VentaControlador extends Controlador {
 	private static VentaControlador controlador = null;
 
 	public VentaControlador () {
-		super(Coche.class, "VentaDeCoches");
+		super(Venta.class, "VentaDeCoches");
 	}
 	
 	/**

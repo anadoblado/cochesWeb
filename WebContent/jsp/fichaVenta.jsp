@@ -58,8 +58,8 @@ String mensajeAlUsuario = "";
 if (RequestUtils.getStringParameterFromHashMap(hashMap, "eliminar") != null){
 	// Intento elimiar un registro, si he ejecuta volvemos a la pantalla del listado
 	try{
-		CocheControlador.getControlador().remove(venta);
-		response.sendRedirect(request.getContextPath() + "jsp/listadoVentas.jsp"); // Redirección al listado
+		VentaControlador.getControlador().remove(venta);
+		response.sendRedirect(request.getContextPath() + "jsp/listadoVentas.jsp?idPag=1"); // Redirección al listado
 	} catch (Exception ex){
 		mensajeAlUsuario = "ERROR - Imposible eliminar. Es posible que exitan restricciones.";
 	}
@@ -80,7 +80,7 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 			e.printStackTrace();
  		}
 
-		//Finalmente guardo el objeto de tipo profesor
+		//Finalmente guardo el objeto de tipo venta
 		VentaControlador.getControlador().save(venta);
 		mensajeAlUsuario = "Guardado correctamente";
 	} catch (Exception e){
@@ -121,8 +121,8 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					<p />
 					 <input type="hidden" name="idVenta" value="<%=venta.getId()%>"/>
 					 <div class="form-group row">
-					 	<label class="col-lg-3 col-form-label form-control-label" for="idConcesionario">Concesionario:</label>
-					 	<div class="col-lg-9">
+					 	<label class="col-lg-4 col-form-label form-control-label" for="idConcesionario">Concesionario:</label>
+					 	<div class="col-lg-8">
 					 		<select name="idConcesionario" id="idConcesionario"
 									class="form-control">
 									<%
@@ -147,7 +147,7 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 									for (Cliente cliente : clientes) {
 									%>
 									<option value="<%=cliente.getId()%>"
-										<%=((cliente.getId() == venta.getConcesionario().getId()) ? "selected=\"selected\"" : "")%>><%=cliente.getNombre()%></option>
+										<%=((cliente.getId() == venta.getConcesionario().getId()) ? "selected=\"selected\"" : "")%>><%=cliente.getApellidos()%></option>
 									<% } %>
 								</select>
 					 	</div>
@@ -169,17 +169,16 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					 	</div>
 					 </div>
 					  <div class="form-group row">
-					 	<label class="col-lg-3 col-form-label form-control-label" for="fecha">Fecha de Venta:</label>
-					 	<div class="col-lg-9">
-					 		<input name="fecha" class="form-control" 
-					 		type="text" id="fecha" 
-					 		value="<%= ((venta.getFecha() != null) ? sdfFecha.format(venta.getFecha()) : "" ) %>" />
+					 	<label class="col-lg-4 col-form-label form-control-label" for="fecha">Fecha de Venta:</label>
+					 	<div class="col-lg-8">
+					 		<input name="fecha" class="form-control" type="text" 
+					 		id="fecha" value="<%= ((venta.getFecha() != null) ? sdfFecha.format(venta.getFecha()) : "") %>" />
 					 	</div>
 					 </div>
 					 <div>
-					  <div>
-					   <label class="col-lg-3 col-form-label form-control-label" for="precioVenta">Precio de venta</label>
-					   <div class="col-lg-9">
+					  <div class="form-group row">
+					   <label class="col-lg-4 col-form-label form-control-label" for="precioVenta">Precio de venta</label>
+					   <div class="col-lg-8">
 					   		<input name="precioVenta" class="form-control" type="text" id="precioVenta" value="<%=venta.getPrecioVenta() %>" />
 					   </div>
 					  </div>

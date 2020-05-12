@@ -64,7 +64,7 @@
 		onclick="window.location='fichaCliente.jsp?idCliente=0'" />
 		
 			<ul class="pagination justify-content-center">
-	  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex-1 %>">Previous</a></li>
+	  <li class="page-item"><a class="page-link" href="?idPag=1">First</a></li>
 	  <%
 	  List<Cliente> c = ClienteControlador.getControlador().findAll();
 	  double size = Math.ceil(c.size() / 5);
@@ -77,7 +77,7 @@
 	  %>
 	  <li class="page-item active"><a class="page-link" href="?idPag=<%= paginationIndex %>" ><%= paginationIndex %></a></li>
 	  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>
-	  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>">Next</a></li>
+	  <li class="page-item"><a class="page-link" href="?idPag=<%= Math.round(size) %>" >Last</a></li>
 	  
 </div>
 <%@ include file="pie.jsp"%>

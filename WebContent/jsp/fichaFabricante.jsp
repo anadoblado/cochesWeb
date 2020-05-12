@@ -104,7 +104,7 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 					action="fichaFabricante.jsp" enctype="multipart/form-data"
 					class="form" role="form" autocomplete="off">
 					<p />
-					<img class="mx-auto d-block round-circle" 
+					<img class="mx-auto d-block rounded-circle" 
 					 src="../Utils/DownloadImagenFabricante?idFabricante=<%=fabricante.getId()%>"
 					 width="100px" height="100px" />
 					 <p />
