@@ -66,18 +66,21 @@
 	<input type="submit" class="btn btn-primary" name="nuevo" value="Nuevo"
 		onclick="window.location='fichaCliente.jsp?idCliente=0'" />
 		
-			<ul class="pagination">
-	  <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+			<ul class="pagination justify-content-center">
+	  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex-1 %>">Previous</a></li>
 	  <%
 	  List<Cliente> c = ClienteControlador.getControlador().findAll();
 	  double size = Math.ceil(c.size() / 5);
+	  
 	  if (paginationIndex > 1){
 	  %> 
 		  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex-1 %>" ><%= paginationIndex-1 %></a></li>
 	  <%
 	  }
 	  %>
-		  <li class="page-item active"><a class="page-link" href="?idPag=<%= paginationIndex %>" ><%= paginationIndex %></a></li>
+	  <li class="page-item active"><a class="page-link" href="?idPag=<%= paginationIndex %>" ><%= paginationIndex %></a></li>
+	  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>
+	  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>">Next</a></li>
 	  
 </div>
 <%@ include file="pie.jsp"%>

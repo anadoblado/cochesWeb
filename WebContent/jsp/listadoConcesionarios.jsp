@@ -21,8 +21,10 @@
 				
 			}
 		%>
-		<%! private int offset; %>
-		<%= offset = getOffset(request.getParameter("idPag")) %>
+		<%! private int offset, paginationIndex; %>
+		<% offset = getOffset(request.getParameter("idPag"));
+			paginationIndex = Integer.parseInt(request.getParameter("idPag"));
+		%>
 <div class="container">
 	<h1>Listado de Concesionarios</h1>
 
@@ -59,21 +61,22 @@
 	<input type="submit" class="btn btn-primary" name="nuevo" value="Nuevo"
 		onclick="window.location='fichaConcesionario.jsp?idConcesionario=0'" />
 		
-	<ul class="pagination">
-	  <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+	<ul class="pagination justify-content-center">
+	   <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex %>">Previous</a></li>
 	  <%
 	  List<Concesionario> c = ConcesionarioControlador.getControlador().findAll();
 	  double size = Math.ceil(c.size() / 5);
-	  for(int i = 1; i <= size; i++){
-	  %> 
-		  <li class="page-item"><a class="page-link" href="?idPag=<%= i %>" ><%= i %></a></li>
-	  <%
-	  }
-	  %>
-<!--  <li class="page-item"><a class="page-link" href="?idPag=1">1</a></li>
-	  <li class="page-item"><a class="page-link" href="?idPag=2">2</a></li>
-	  <li class="page-item"><a class="page-link" href="?idPag=3">3</a></li>
-	  <li class="page-item"><a class="page-link" href="#">Next</a></li>
--->	</ul> 
+	  
+	  if (paginationIndex > 1){
+		  %> 
+			  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex-1 %>" ><%= paginationIndex-1 %></a></li>
+		  <%
+		  }
+		  %>
+		  <li class="page-item active"><a class="page-link" href="?idPag=<%= paginationIndex %>" ><%= paginationIndex %></a></li>
+		  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>
+		  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>">Next</a></li>
+	  </ul>
+ 
 </div>
 <%@ include file="pie.jsp"%>

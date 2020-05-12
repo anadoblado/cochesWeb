@@ -11,6 +11,7 @@
   <title><%= (tituloDePagina != null)? tituloDePagina : "Sin título" %></title>
 </head>
 <body>
+
 <div class="cotainer">
 	<a href="../index.html"> Volver al menú de opciones </a>
 </div>

@@ -6,7 +6,6 @@
 <jsp:include page="cabecera.jsp" flush="true">
 	<jsp:param name="tituloDePagina" value="Listado de coches" />
 </jsp:include>
-
 <%!
 			public int getOffset(String param){
 				int offset = Integer.parseInt(param);
@@ -19,8 +18,10 @@
 				
 			}
 		%>
-		<%! private int offset; %>
-		<%= offset = getOffset(request.getParameter("idPag")) %>
+		<%! private int offset, paginationIndex; %>
+		<% offset = getOffset(request.getParameter("idPag"));
+			paginationIndex = Integer.parseInt(request.getParameter("idPag"));
+		%>
 <div class="container">
 	<h1>Listado de Coches</h1>
 	<table class="table table-hover">
@@ -59,16 +60,20 @@
 		onclick="window.location='fichaCoche.jsp?idCoche=0'" />
 		
 		
-	<ul class="pagination">
-	  <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+	<ul class="pagination justify-content-center">
+	   <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex-1 %>">Previous</a></li>
 	  <%
 	  List<Coche> c = CocheControlador.getControlador().findAll();
 	  double size = Math.ceil(c.size() / 5);
-	  for(int i = 1; i <= size; i++){
-	  %> 
-		  <li class="page-item"><a class="page-link" href="?idPag=<%= i %>" ><%= i %></a></li>
-	  <%
-	  }
-	  %>
+	  if (paginationIndex > 1){
+		  %> 
+			  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex-1 %>" ><%= paginationIndex-1 %></a></li>
+		  <%
+		  }
+		  %>
+		  <li class="page-item active"><a class="page-link" href="?idPag=<%= paginationIndex %>" ><%= paginationIndex %></a></li>
+		  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>
+		  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>">Next</a></li>
+	  </ul>
 </div>
 <%@ include file="pie.jsp"%>

@@ -86,7 +86,7 @@ if (RequestUtils.getStringParameterFromHashMap(hashMap, "guardar") != null){
 		}
 		cliente.setLocalidad(RequestUtils.getStringParameterFromHashMap(hashMap, "localidad"));
 		
-		cliente.setActivo(Boolean.valueOf(RequestUtils.getStringParameterFromHashMap(hashMap, "activo")));
+		cliente.setActivo(Boolean.parseBoolean(RequestUtils.getStringParameterFromHashMap(hashMap, "activo")));
 		
 		//Finalmente guardo el objeto de tipo profesor
 		ClienteControlador.getControlador().save(cliente);
