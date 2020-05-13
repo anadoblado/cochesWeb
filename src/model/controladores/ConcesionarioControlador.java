@@ -130,6 +130,12 @@ public class ConcesionarioControlador extends Controlador {
 	}
 	
 
+	/**
+	 * Método que limita a 5 los resultados de una lista
+	 * @param limit
+	 * @param offset
+	 * @return
+	 */
 	public List<Concesionario> findAllLimited (int limit, int offset) {
 		EntityManager em = getEntityManagerFactory().createEntityManager();
 		Query q = em.createQuery("SELECT c FROM Concesionario c", Concesionario.class);
@@ -138,6 +144,19 @@ public class ConcesionarioControlador extends Controlador {
 		List<Concesionario> resultado = (List<Concesionario>) q.getResultList();
 		em.close();
 		return resultado;
+	}
+	
+	/**
+	 * Método que saca un entero con el valor de la cantidad de registros
+	 * @return
+	 */
+	public int numRegistros() {
+		EntityManager em = getEntityManagerFactory().createEntityManager();
+		Query q = em.createNativeQuery("SELECT count(*) FROM Concesionario");
+		Long cantidad = (Long) q.getSingleResult();
+		em.close();
+		return cantidad.intValue();
+		
 	}
 	
 	public static String toString (Concesionario concesionario) {

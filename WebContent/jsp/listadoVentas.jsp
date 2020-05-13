@@ -78,8 +78,15 @@
 		  <%
 		  }
 		  %>
-		  	<li class="page-item active"><a class="page-link" href="?idPag=<%= paginationIndex %>" ><%= paginationIndex %></a></li>
-		     <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>  
+		  <li class="page-item active"><a class="page-link" href="?idPag=<%= paginationIndex %>" ><%= paginationIndex %></a></li>
+		<%
+		if (paginationIndex < size){
+		%>
+		<li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>  
+		<%
+		  }
+		  %>
+		     
 		  <li class="page-item"><a class="page-link" href="?idPag=<%=Math.round(size)%>">Last</a></li>
 	 </ul> 
 </div>

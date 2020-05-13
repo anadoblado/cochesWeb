@@ -152,6 +152,12 @@ public class VentaControlador extends Controlador {
 		return resultado;
 	}
 	
+	/**
+	 * Método que limita a 5 los resultados de una lista
+	 * @param limit
+	 * @param offset
+	 * @return
+	 */
 	public List<Venta> findAllLimited (int limit, int offset) {
 		EntityManager em = getEntityManagerFactory().createEntityManager();
 		Query q = em.createQuery("SELECT c FROM Venta c", Coche.class);
@@ -162,6 +168,10 @@ public class VentaControlador extends Controlador {
 		return resultado;
 	}
 	
+	/**
+	 * Método que saca un entero con el valor de la cantidad de registros
+	 * @return
+	 */
 	public int numRegistros() {
 		EntityManager em = getEntityManagerFactory().createEntityManager();
 		Query q = em.createNativeQuery("SELECT count(*) FROM Venta");
