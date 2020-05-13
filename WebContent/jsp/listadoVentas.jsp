@@ -64,17 +64,22 @@
 		
 	<ul class="pagination justify-content-center">
 	   <li class="page-item"><a class="page-link" href="?idPag=1">First</a></li>
+	  
 	  <%
-	  List<Venta> c = VentaControlador.getControlador().findAll();
-	  double size = Math.ceil(c.size() / 5);
-	  if (paginationIndex > 1){
+//	  List<Venta> c = VentaControlador.getControlador().findAll();
+	  int num = VentaControlador.getControlador().numRegistros();
+	   double size = Math.ceil(num / 5);
+	  
+	   if(paginationIndex > 1){
+	   
 		  %> 
-			  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex-1 %>" ><%= paginationIndex-1 %></a></li>
+		     <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex-1 %>" ><%= paginationIndex-1 %></a></li>
+			 
 		  <%
 		  }
 		  %>
-		  <li class="page-item active"><a class="page-link" href="?idPag=<%= paginationIndex %>" ><%= paginationIndex %></a></li>
-		  <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>
+		  	<li class="page-item active"><a class="page-link" href="?idPag=<%= paginationIndex %>" ><%= paginationIndex %></a></li>
+		     <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>  
 		  <li class="page-item"><a class="page-link" href="?idPag=<%=Math.round(size)%>">Last</a></li>
 	 </ul> 
 </div>

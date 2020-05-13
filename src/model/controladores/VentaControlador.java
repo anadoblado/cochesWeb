@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.Parameter;
 import javax.persistence.Query;
 
 import model.Coche;
@@ -159,6 +160,15 @@ public class VentaControlador extends Controlador {
 		List<Venta> resultado = (List<Venta>) q.getResultList();
 		em.close();
 		return resultado;
+	}
+	
+	public int numRegistros() {
+		EntityManager em = getEntityManagerFactory().createEntityManager();
+		Query q = em.createNativeQuery("SELECT count(*) FROM Venta");
+		Long cantidad = (Long) q.getSingleResult();
+		em.close();
+		return cantidad.intValue();
+		
 	}
 
 	

@@ -62,7 +62,7 @@
 		onclick="window.location='fichaConcesionario.jsp?idConcesionario=0'" />
 		
 	<ul class="pagination justify-content-center">
-	   <li class="page-item"><a class="page-link" href="?idPag=1">First</a></li>
+	   <li class="page-item previus"><a class="page-link" href="?idPag=1">First</a></li>
 	  <%
 	  List<Concesionario> c = ConcesionarioControlador.getControlador().findAll();
 	  double size = Math.ceil(c.size() / 5);

@@ -46,7 +46,7 @@ if (cliente.getFechaNac() == null) {
 }
 if (cliente.getLocalidad() == null) cliente.setLocalidad("");
 
-// ERROR PARA EL BOOLEAN
+
 if (cliente.getActivo() == false) cliente.setActivo(false);
 
 
