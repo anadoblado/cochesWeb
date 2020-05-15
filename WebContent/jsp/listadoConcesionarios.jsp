@@ -62,7 +62,7 @@
 		onclick="window.location='fichaConcesionario.jsp?idConcesionario=0'" />
 		
 	<ul class="pagination justify-content-center">
-	   <li class="page-item previus"><a class="page-link" href="?idPag=1">First</a></li>
+	   <li class="page-item previus"><a class="page-link text-info" href="?idPag=1">First</a></li>
 	  <%
 	  int num = ConcesionarioControlador.getControlador().numRegistros();
 	   double size = Math.ceil(num / 5);
@@ -70,7 +70,7 @@
 	   if(paginationIndex > 1){
 	   
 		  %> 
-		     <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex-1 %>" ><%= paginationIndex-1 %></a></li>
+		     <li class="page-item"><a class="page-link text-info" href="?idPag=<%= paginationIndex-1 %>" ><%= paginationIndex-1 %></a></li>
 			 
 		  <%
 		  }
@@ -79,12 +79,12 @@
 		<%
 		if (paginationIndex < size){
 		%>
-		<li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>  
+		<li class="page-item"><a class="page-link text-info" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>  
 		<%
 		  }
 		  %>
 		     
-		  <li class="page-item"><a class="page-link" href="?idPag=<%=Math.round(size)%>">Last</a></li>
+		  <li class="page-item"><a class="page-link text-info" href="?idPag=<%=Math.round(size)%>">Last</a></li>
 	 </ul> 
 	  </ul>
  

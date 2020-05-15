@@ -63,7 +63,7 @@
 		onclick="window.location='fichaVenta.jsp?idVenta=0'" />
 		
 	<ul class="pagination justify-content-center">
-	   <li class="page-item"><a class="page-link" href="?idPag=1">First</a></li>
+	   <li class="page-item"><a class="page-link text-info" href="?idPag=1">First</a></li>
 	  
 	  <%
 //	  List<Venta> c = VentaControlador.getControlador().findAll();
@@ -73,7 +73,7 @@
 	   if(paginationIndex > 1){
 	   
 		  %> 
-		     <li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex-1 %>" ><%= paginationIndex-1 %></a></li>
+		     <li class="page-item"><a class="page-link text-info" href="?idPag=<%= paginationIndex-1 %>" ><%= paginationIndex-1 %></a></li>
 			 
 		  <%
 		  }
@@ -82,12 +82,12 @@
 		<%
 		if (paginationIndex < size){
 		%>
-		<li class="page-item"><a class="page-link" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>  
+		<li class="page-item"><a class="page-link text-info" href="?idPag=<%= paginationIndex+1 %>" ><%= paginationIndex+1 %></a></li>  
 		<%
 		  }
 		  %>
 		     
-		  <li class="page-item"><a class="page-link" href="?idPag=<%=Math.round(size)%>">Last</a></li>
+		  <li class="page-item"><a class="page-link text-info" href="?idPag=<%=Math.round(size)%>">Last</a></li>
 	 </ul> 
 </div>
 <%@ include file="pie.jsp"%>
